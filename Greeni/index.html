@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title></title>
+
+
+    <link href="content/styles/bootstrap.rtl.full.css" rel="stylesheet" />
+    <link href="content/styles/w3.css" rel="stylesheet" />
+    <link href="content/styles/ionicons.css" rel="stylesheet" />
+    <link href="content/styles/fontawsome2.css" rel="stylesheet" />
+    <link href="content/styles/dx.common.css" rel="stylesheet" />
+    <link rel="dx-theme" data-theme="material.teal-light" href="content/styles/material.teal-light.custom.css" data-active="false" />
+    <link rel="dx-theme" data-theme="material.purple-light" href="content/styles/material.purple-light.custom.css" data-active="false" />
+    <link rel="dx-theme" data-theme="material.blue-light" href="content/styles/material.blue-light.custom.css" data-active="false" />
+    <link rel="dx-theme" data-theme="material.gray-light" href="content/styles/material.gray-light.custom.css" data-active="false" />
+    <link rel="dx-theme" data-theme="material.steel-light" href="content/styles/material.steel-light.custom.css" data-active="false" />
+
+    <link rel="dx-theme" data-theme="generic.light" href="content/styles/dx.light.css" data-active="false" />
+    <link rel="dx-theme" data-theme="generic.dark" href="content/styles/dx.dark.css" data-active="false" />
+
+
+    <link href="content/styles/fontiran.css" rel="stylesheet" />
+    <!-- <link href="content/styles/material.teal-light.custom.css" rel="stylesheet" />-->
+    <link href="content/styles/loading-bar.css" rel="stylesheet" />
+    <link href="content/styles/social-buttons.css" rel="stylesheet" />
+    <link href="content/styles/main.css" rel="stylesheet" />
+    <link href="content/styles/core-ui.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!--<link href="https://unpkg.com/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css" rel="stylesheet" />-->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <style>
+
+
+        .w3-row-padding img {
+            margin-bottom: 12px
+        }
+        /* Set the width of the sidebar to 120px */
+        .w3-sidebar {
+            width: 120px;
+            background: #222;
+        }
+        /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+        #main {
+            margin-right: 120px
+        }
+
+        .w3-jumbo {
+            font-size: 48px !important;
+        }
+
+        .ep-image {
+            max-width: 80%;
+        }
+
+        .w3-button {
+            transition: 0.3s !important;
+            text-decoration: none !important;
+        }
+
+
+            .w3-button:hover {
+                color: #000 !important;
+                background-color: #bbb !important
+            }
+
+                .w3-button:hover span {
+                    color: #000 !important;
+                }
+
+                .w3-button:hover i {
+                    color: #000 !important;
+                }
+        /* Remove margins from "page content" on small screens */
+        @media (min-width:756px) {
+            .Table {
+                color: white;
+                padding: 60px 190px 10px 0px;
+                float: right;
+                text-align: justify;
+                width: 600px;
+            }
+
+            .AboutText {
+                color: white;
+                font-size: 16px;
+                padding: 90px 190px 3px 0px;
+                font-weight: bold;
+                float: right;
+                text-align: justify;
+                width: 600px
+            }
+
+            .mainImage {
+                width: 53%;
+                height: auto;
+                float: left;
+                padding: 40px 0px 5px 10px
+            }
+
+            .sidebar {
+                display: none
+            }
+
+            #iconBar {
+                display: none
+            }
+        }
+
+
+        @media only screen and (max-width: 768px) {
+            #main {
+                margin-right: 0
+            }
+
+            .sidebar_item {
+                color: white;
+            }
+
+            .w3-jumbo {
+                font-size: 40px !important;
+            }
+
+            .bigNav {
+                display: none
+            }
+
+            .sidebar {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                right: 0;
+                background-color: #111;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+            }
+
+                .sidebar a {
+                    padding: 8px 8px 8px 32px;
+                    text-decoration: none;
+                    font-size: 25px;
+                    color: #818181;
+                    display: block;
+                    transition: 0.3s;
+                }
+
+                    .sidebar a:hover {
+                        color: #f1f1f1;
+                    }
+
+                .sidebar .closebtn {
+                    position: absolute;
+                    top: 0;
+                    right: 25px;
+                    font-size: 36px;
+                    margin-left: 50px;
+                    color: white;
+                }
+
+            .openbtn {
+                font-size: 20px;
+                cursor: pointer;
+                background-color: #111;
+                color: white;
+                padding: 10px 15px;
+                border: none;
+            }
+
+                .openbtn:hover {
+                    background-color: #444;
+                }
+
+            #main {
+                transition: margin-right .5s;
+                padding: 40px 20px 0px 0px;
+                background-color: #000;
+                float: right;
+                margin-top: -20px
+            }
+
+            .mainImage {
+                width: 100%;
+                height: auto
+            }
+        }
+
+        .button span {
+            position: relative;
+        }
+
+            .button span:after {
+                width: 90px;
+                height: 90px;
+                position: absolute;
+                right: -146px;
+                top: -34px;
+                background: hsla(0,0%,100%,.21);
+                content: "";
+                border-radius: 50%;
+                transition: 1s;
+            }
+
+        .button:hover {
+            position: relative;
+        }
+
+            .button:hover span:after {
+                width: 900px;
+                height: 90px;
+                right: -450px;
+                top: -30px;
+                background: hsla(0,0%,100%,.21);
+                content: "";
+                transform: unset;
+            }
+
+        .dx-texteditor {
+            border-radius: 4px;
+            background: white;
+        }
+
+        .center .dx-texteditor-input {
+            text-align: center
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            margin-bottom: 0 !important;
+        }
+
+        .simplebackground{
+            background-color:initial !important;
+            color:white !important;
+        }
+        .simplebackground:hover {
+            background-color: initial !important;
+            color: white !important;
+        }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159921170-1"></script>
+
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-159921170-1');
+    </script>
+</head>
+<body class="w3-black" style="direction: rtl">
+
+    <div ng-app="AngularJSApp" style=" height:100%">
+        <div id="popup_signin" dx-popup="popup_signin">
+            <div style="padding:10px 10px 0 10px" ng-show="isContentVisible">
+                <div style="color:red"></div>
+            </div>
+        </div>
+        <nav class="bigNav" style="overflow:hidden;text-align:center !important">
+            <!-- Avatar image in top left corner -->
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+            <a class="w3-bar-item w3-button " style="position:relative;" data-ng-click="navigate2('/greeni1','greeni1',1)">
+                <span style="font-size:13px;color:white;font-weight:bold;margin-top:5px">گرینی مکس 1</span>
+            </a>
+            <a class="w3-bar-item w3-button w3-padding-large backcolor-transition basket centerNav" style="position:relative;" data-ng-click="navigate2('/greeni2','greeni2',1)">
+                <span style="font-size:13px;color:white;font-weight:bold;margin-top:5px">گرینی مکس 2</span>
+            </a>
+            <a class="w3-bar-item w3-button w3-padding-large backcolor-transition basket centerNav" style="position:relative;" data-ng-click="navigate2('/basket','basket',1)">
+                <span style="font-size:13px;color:white;font-weight:bold;margin-top:5px">سبد خرید  </span>
+                <div ng-show="isBasketNoVisible" class="basket-no">{{basketCount}}</div>
+            </a>
+            <a class="w3-bar-item w3-button w3-padding-large backcolor-transition basket centerNav" style="position:relative;" data-ng-click="navigate2('/orders','orders',1)">
+                <span style="font-size:13px;color:white;font-weight:bold;display:block;margin-top:5px">سفارش ها  </span>
+            </a>
+            <a class="w3-bar-item w3-button w3-padding-large centerNav" style="" data-ng-click="navigate2('/sales','sales',1)">
+                <span style="font-size:13px;color:white;font-weight:bold">نمایندگی های فروش</span>
+            </a>
+            <a class="w3-bar-item w3-button w3-padding-large centerNav" style="" data-ng-click="navigate2('/about','about',1)">
+                <span style="font-size:13px;color:white;font-weight:bold;margin-top:5px;">درباره ما</span>
+            </a>
+            <a ng-show="!isSignedIn" class="ng-hide w3-bar-item w3-button w3-padding-large centerNav" style="">
+                <span href="" ng-click="signIn()" style="font-size:13px;color:white;font-weight:bold;margin-top:5px;"><b>حساب کاربری</b></span>
+            </a>
+            <a ng-show="isSignedIn" class="ng-hide w3-bar-item w3-button w3-padding-large centerNav simplebackground" style="padding-left:5px !important">
+                <span href="" data-ng-click="goProfile()" style="font-size:13px;color:white;font-weight:bold;margin-top:5px;color:white !important"><b>{{userTitle}}</b></span>
+                <!--<i class="fas fa-power-off" ng-click="logOut()" style="font-size:20px"></i>-->
+            </a>
+            <a ng-show="isSignedIn" class="ng-hide w3-bar-item w3-button w3-padding-large centerNav simplebackground" style="padding-left:5px !important;padding-right:5px !important">
+                
+                <i class="fas fa-power-off" ng-click="logOut()" style="font-size:24px;color:#c00000 !important"></i>
+            </a>
+
+        </nav>
+
+        <!--mobile navigation bar-->
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a style="color:white" data-ng-click="navigate2('/greeni1','greeni1',1)">گرینی مکس 1</a>
+            <a style="color:white" data-ng-click="navigate2('/greeni2','greeni2',1)">گرینی مکس 2</a>
+            <a style="color:white" data-ng-click="navigate2('/basket','basket',1)">سبد خرید</a>
+            <a style="color:white" data-ng-click="navigate2('/orders','orders',1)">سفارش ها</a>
+            <a style="color:white" data-ng-click="navigate2('/sales','sales',1)">نمایندگی ها</a>
+            <a style="color:white" data-ng-click="navigate2('/about','about',1)">درباره ما</a>
+            <a style="color:white" ng-show="!isSignedIn" ng-click="signIn()">حساب کاربری</a>
+            <a style="color:white" ng-show="isSignedIn" ng-click="logOut()">{{userTitle}}</a>
+        </div>
+        <i id="iconBar" onclick="openNav()" class="fas fa-bars openbtn"></i>
+
+        <div class="anfade" ng-view>
+
+        </div>
+    </div>
+
+    <script>
+        function openNav()
+        {
+            document.getElementById("mySidebar").style.width = "100%";
+        }
+        function closeNav()
+        {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+    </script>
+
+
+
+    <script src="scripts/jquery-3.1.0.js"></script>
+    <script src="scripts/angular-1.7.2.js"></script>
+    <script src="scripts/angularjs-sanitize.js"></script>
+    <script src="scripts/angular-route-1.7.2.js"></script>
+    <script src="scripts/angular-animate.js"></script>
+    <script src="scripts/angular-local-storage.min.js"></script>
+    <script src="scripts/loading-bar.min.js"></script>
+    <script type="text/javascript" src="scripts/linq.min.js"></script>
+    <script src="scripts/moment.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="scripts/jsrender.min.js"></script>
+    <script src="https://unpkg.com/persian-date@1.1.0/dist/persian-date.min.js"></script>
+    <script src="https://unpkg.com/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
+
+
+    <script src="scripts/data.js"></script>
+
+
+    <script type="text/javascript" src="scripts/dx.all.js"></script>
+    <!--<script type="text/javascript" src="https://cdn3.devexpress.com/jslib/19.2.7/js/dx.all.js"></script>-->
+    <script src="scripts/globalize.js"></script>
+    <script src="scripts/globalize/number.js"></script>
+    <!--<script type="text/javascript" src="scripts/ionicons.js"></script>-->
+
+
+
+    <script src="app/app.js?v=3"></script>
+
+    <!-- Load services -->
+    <script src="app/services/authInterceptorService.js?v=2"></script>
+    <script src="app/services/authService.js?v=15"></script>
+    <script src="app/services/appService.js?v=3"></script>
+    <script src="app/services/orderService.js"></script>
+    <script src="app/services/personService.js"></script>
+    <!-- Load controllers -->
+    <script src="app/controllers/indexController.js?v=3"></script>
+
+    <script src="app/controllers/homeController.js?v=3"></script>
+    <script src="app/controllers/greeni1Controller.js?v=3"></script>
+    <script src="app/controllers/greeni2Controller.js?v=3"></script>
+    <script src="app/controllers/basketController.js?v=3"></script>
+    <script src="app/controllers/ordersController.js"></script>
+    <script src="app/controllers/aboutController.js?v=3"></script>
+    <script src="app/controllers/signupController.js"></script>
+    <script src="app/controllers/signup2Controller.js"></script>
+    <script src="app/controllers/signinController.js"></script>
+    <script src="app/controllers/profileController.js"></script>
+    <script src="app/controllers/salesController.js"></script>
+    <script src="app/controllers/storesController.js"></script>
+    <script src="app/controllers/ordersAdminController.js"></script>
+    <script src="app/controllers/paymentResultController.js"></script>
+    <script src="app/controllers/paymentResult2Controller.js"></script>
+    <script src="app/controllers/profile2Controller.js"></script>
+</body>
+</html>

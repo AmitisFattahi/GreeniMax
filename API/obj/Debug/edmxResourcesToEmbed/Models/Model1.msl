@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EPAGRIFFINModelStoreContainer" CdmEntityContainer="EPAGRIFFINEntities">
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="AccuWeatherCode" ColumnName="AccuWeatherCode" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="PhoneCode" ColumnName="PhoneCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SortName" ColumnName="SortName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Options">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.Option">
+        <MappingFragment StoreEntitySet="Option">
+          <ScalarProperty Name="Prop1" ColumnName="Prop1" />
+          <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+          <ScalarProperty Name="OrderIndex" ColumnName="OrderIndex" />
+          <ScalarProperty Name="IsSystem" ColumnName="IsSystem" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reviews">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.Review">
+        <MappingFragment StoreEntitySet="Review">
+          <ScalarProperty Name="ToReviewId" ColumnName="ToReviewId" />
+          <ScalarProperty Name="ToNetworkGroupId" ColumnName="ToNetworkGroupId" />
+          <ScalarProperty Name="ToPostId" ColumnName="ToPostId" />
+          <ScalarProperty Name="ToPersonId" ColumnName="ToPersonId" />
+          <ScalarProperty Name="DateConfirm" ColumnName="DateConfirm" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="TotalRate" ColumnName="TotalRate" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewCountries">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.ViewCountry">
+        <MappingFragment StoreEntitySet="ViewCountry">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SortName" ColumnName="SortName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewOptions">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.ViewOption">
+        <MappingFragment StoreEntitySet="ViewOption">
+          <ScalarProperty Name="IsSystem" ColumnName="IsSystem" />
+          <ScalarProperty Name="OrderIndex" ColumnName="OrderIndex" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefreshTokens">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.RefreshToken">
+        <MappingFragment StoreEntitySet="RefreshToken">
+          <ScalarProperty Name="ProtectedTicket" ColumnName="ProtectedTicket" />
+          <ScalarProperty Name="ExpiresUtc" ColumnName="ExpiresUtc" />
+          <ScalarProperty Name="IssuedUtc" ColumnName="IssuedUtc" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewPersons">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.ViewPerson">
+        <MappingFragment StoreEntitySet="ViewPerson">
+          <ScalarProperty Name="Education" ColumnName="Education" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="CountrySortName" ColumnName="CountrySortName" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="FieldOfStudy" ColumnName="FieldOfStudy" />
+          <ScalarProperty Name="FieldOfStudyId" ColumnName="FieldOfStudyId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DateJoinStr" ColumnName="DateJoinStr" />
+          <ScalarProperty Name="DateJoin" ColumnName="DateJoin" />
+          <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+          <ScalarProperty Name="DegreeId" ColumnName="DegreeId" />
+          <ScalarProperty Name="Headline" ColumnName="Headline" />
+          <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="University" ColumnName="University" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ZIPCode" ColumnName="ZIPCode" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="ImageUrl2" ColumnName="ImageUrl2" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IDNo" ColumnName="IDNo" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="SexId" ColumnName="SexId" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderItems">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.OrderItem">
+        <MappingFragment StoreEntitySet="OrderItem">
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DiscountUnit" ColumnName="DiscountUnit" />
+          <ScalarProperty Name="PriceUnit" ColumnName="PriceUnit" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="Position2" ColumnName="Position2" />
+          <ScalarProperty Name="Location2" ColumnName="Location2" />
+          <ScalarProperty Name="Education2" ColumnName="Education2" />
+          <ScalarProperty Name="TempId" ColumnName="TempId" />
+          <ScalarProperty Name="FieldOfStudyId" ColumnName="FieldOfStudyId" />
+          <ScalarProperty Name="DateJoin" ColumnName="DateJoin" />
+          <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+          <ScalarProperty Name="DegreeId" ColumnName="DegreeId" />
+          <ScalarProperty Name="Headline" ColumnName="Headline" />
+          <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="University" ColumnName="University" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ZIPCode" ColumnName="ZIPCode" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IDNo" ColumnName="IDNo" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="SexId" ColumnName="SexId" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoleClaims">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.AspNetRoleClaim">
+        <MappingFragment StoreEntitySet="AspNetRoleClaims">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserTokens">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.AspNetUserToken">
+        <MappingFragment StoreEntitySet="AspNetUserTokens">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="EPAGRIFFINModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="PayConfirmToken" ColumnName="PayConfirmToken" />
+          <ScalarProperty Name="PayConfirmCardMask" ColumnName="PayConfirmCardMask" />
+          <ScalarProperty Name="TspToken" ColumnName="TspToken" />
+          <ScalarProperty Name="PayConfirmDate" ColumnName="PayConfirmDate" />
+          <ScalarProperty Name="PayConfirm" ColumnName="PayConfirm" />
+          <ScalarProperty Name="PayDoneDate" ColumnName="PayDoneDate" />
+          <ScalarProperty Name="PayInitDate" ColumnName="PayInitDate" />
+          <ScalarProperty Name="PayDoneHashCardNumber" ColumnName="PayDoneHashCardNumber" />
+          <ScalarProperty Name="PayDoneAmount" ColumnName="PayDoneAmount" />
+          <ScalarProperty Name="PayDoneStatus" ColumnName="PayDoneStatus" />
+          <ScalarProperty Name="PayDoneRRN" ColumnName="PayDoneRRN" />
+          <ScalarProperty Name="PayDoneTerminalNo" ColumnName="PayDoneTerminalNo" />
+          <ScalarProperty Name="PayDoneOrderId" ColumnName="PayDoneOrderId" />
+          <ScalarProperty Name="PayDoneToken" ColumnName="PayDoneToken" />
+          <ScalarProperty Name="PayInitToken" ColumnName="PayInitToken" />
+          <ScalarProperty Name="PayInitMessage" ColumnName="PayInitMessage" />
+          <ScalarProperty Name="PayInitStatus" ColumnName="PayInitStatus" />
+          <ScalarProperty Name="AdditionalData" ColumnName="AdditionalData" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="Transport" ColumnName="Transport" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="DateG" ColumnName="DateG" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="IsUser" ColumnName="IsUser" />
+          <ScalarProperty Name="NID" ColumnName="NID" />
+          <ScalarProperty Name="Phone3" ColumnName="Phone3" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Network" ColumnName="Network" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ZIPCode" ColumnName="ZIPCode" />
+          <ScalarProperty Name="DateJoin" ColumnName="DateJoin" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="DateVerified" ColumnName="DateVerified" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewCompanies">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.ViewCompany">
+        <MappingFragment StoreEntitySet="ViewCompany">
+          <ScalarProperty Name="IsUser" ColumnName="IsUser" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="NID" ColumnName="NID" />
+          <ScalarProperty Name="Phone3" ColumnName="Phone3" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Network" ColumnName="Network" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="CountrySortName" ColumnName="CountrySortName" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ZIPCode" ColumnName="ZIPCode" />
+          <ScalarProperty Name="PDateJoin" ColumnName="PDateJoin" />
+          <ScalarProperty Name="DateJoinStr" ColumnName="DateJoinStr" />
+          <ScalarProperty Name="DateJoin" ColumnName="DateJoin" />
+          <ScalarProperty Name="ImageUrl2" ColumnName="ImageUrl2" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="DateVerifiedStr" ColumnName="DateVerifiedStr" />
+          <ScalarProperty Name="DateVerified" ColumnName="DateVerified" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewOrders">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.ViewOrder">
+        <MappingFragment StoreEntitySet="ViewOrder">
+          <ScalarProperty Name="IsUser" ColumnName="IsUser" />
+          <ScalarProperty Name="CompanyZIPCode" ColumnName="CompanyZIPCode" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="CompanyLocation" ColumnName="CompanyLocation" />
+          <ScalarProperty Name="CompanyState" ColumnName="CompanyState" />
+          <ScalarProperty Name="CompanyCity" ColumnName="CompanyCity" />
+          <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+          <ScalarProperty Name="CompanyPhone" ColumnName="CompanyPhone" />
+          <ScalarProperty Name="CompanyMobile" ColumnName="CompanyMobile" />
+          <ScalarProperty Name="CompanyManager" ColumnName="CompanyManager" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="PayConfirmToken" ColumnName="PayConfirmToken" />
+          <ScalarProperty Name="PayConfirmCardMask" ColumnName="PayConfirmCardMask" />
+          <ScalarProperty Name="TspToken" ColumnName="TspToken" />
+          <ScalarProperty Name="PayConfirm" ColumnName="PayConfirm" />
+          <ScalarProperty Name="PayConfirmDate" ColumnName="PayConfirmDate" />
+          <ScalarProperty Name="PayDoneDate" ColumnName="PayDoneDate" />
+          <ScalarProperty Name="PayInitDate" ColumnName="PayInitDate" />
+          <ScalarProperty Name="PayDoneHashCardNumber" ColumnName="PayDoneHashCardNumber" />
+          <ScalarProperty Name="PayDoneAmount" ColumnName="PayDoneAmount" />
+          <ScalarProperty Name="PayDoneStatus" ColumnName="PayDoneStatus" />
+          <ScalarProperty Name="PayDoneRRN" ColumnName="PayDoneRRN" />
+          <ScalarProperty Name="PayDoneTerminalNo" ColumnName="PayDoneTerminalNo" />
+          <ScalarProperty Name="PayDoneOrderId" ColumnName="PayDoneOrderId" />
+          <ScalarProperty Name="PayDoneToken" ColumnName="PayDoneToken" />
+          <ScalarProperty Name="PayInitToken" ColumnName="PayInitToken" />
+          <ScalarProperty Name="PayInitMessage" ColumnName="PayInitMessage" />
+          <ScalarProperty Name="PayInitStatus" ColumnName="PayInitStatus" />
+          <ScalarProperty Name="AdditionalData" ColumnName="AdditionalData" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TotalAmountInit" ColumnName="TotalAmountInit" />
+          <ScalarProperty Name="TotalDiscount" ColumnName="TotalDiscount" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="Transport" ColumnName="Transport" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="DateStr" ColumnName="DateStr" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="DateG" ColumnName="DateG" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewOrderItems">
+      <EntityTypeMapping TypeName="EPAGRIFFINModel.ViewOrderItem">
+        <MappingFragment StoreEntitySet="ViewOrderItem">
+          <ScalarProperty Name="IsUser" ColumnName="IsUser" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Transport" ColumnName="Transport" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="OrderDiscount" ColumnName="OrderDiscount" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="Person" ColumnName="Person" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="DateStr" ColumnName="DateStr" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="OrderStatusId" ColumnName="OrderStatusId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="FinalPriceUnit" ColumnName="FinalPriceUnit" />
+          <ScalarProperty Name="DiscountUnit" ColumnName="DiscountUnit" />
+          <ScalarProperty Name="PriceUnit" ColumnName="PriceUnit" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

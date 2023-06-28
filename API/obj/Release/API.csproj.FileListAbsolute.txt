@@ -1,0 +1,3 @@
+C:\Users\Sepehr\source\repos\Greeni\API\obj\Release\API.csprojAssemblyReference.cache
+C:\Users\Sepehr\source\repos\Greeni\API\obj\Release\API.csproj.CoreCompileInputs.cache
+C:\Users\Sepehr\source\repos\Greeni\API\obj\Release\API.csproj.AssemblyReference.cache

@@ -1,0 +1,873 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EPAGRIFFINModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'greenim1_greeni.dbo.AspNetRoleClaims' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AspNetRoleClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="varchar" MaxLength="255" />
+    <Property Name="ClaimValue" Type="varchar" MaxLength="255" />
+    <Property Name="RoleId" Type="int" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'greenim1_greeni.dbo.AspNetUserClaims' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'greenim1_greeni.dbo.AspNetUserLogins' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'greenim1_greeni.dbo.AspNetUserRoles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'greenim1_greeni.dbo.AspNetUserTokens' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AspNetUserTokens">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LoginProvider" />
+    </Key>
+    <Property Name="UserId" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="LoginProvider" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="500" />
+    <Property Name="Value" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'greenim1_greeni.dbo.City' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="AccuWeatherCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="Latitude" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="Longitude" Type="decimal" Precision="18" Scale="4" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="500" />
+    <Property Name="Email" Type="nvarchar" MaxLength="500" />
+    <Property Name="Website" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Url" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DateVerified" Type="datetime" />
+    <Property Name="Twitter" Type="nvarchar" MaxLength="500" />
+    <Property Name="LinkedIn" Type="nvarchar" MaxLength="500" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="1000" />
+    <Property Name="PersonId" Type="int" />
+    <Property Name="DateJoin" Type="datetime" Nullable="false" />
+    <Property Name="ZIPCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="City" Type="nvarchar" MaxLength="255" />
+    <Property Name="State" Type="nvarchar" MaxLength="255" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="Network" Type="nvarchar" MaxLength="1000" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="256" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="2000" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="255" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone3" Type="nvarchar" MaxLength="255" />
+    <Property Name="NID" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsUser" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'greenim1_greeni.dbo.Country' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="SortName" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SortName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="PhoneCode" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'greenim1_greeni.dbo.Option' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Option">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="IsSystem" />
+      <PropertyRef Name="OrderIndex" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="IsSystem" Type="bit" Nullable="false" />
+    <Property Name="OrderIndex" Type="int" Nullable="false" />
+    <Property Name="CreatorId" Type="int" />
+    <Property Name="Prop1" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateG" Type="datetime" />
+    <Property Name="Date" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="500" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Tax" Type="decimal" Precision="18" Scale="8" />
+    <Property Name="Discount" Type="decimal" Precision="18" Scale="8" />
+    <Property Name="Transport" Type="decimal" Precision="18" Scale="8" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="PersonId" Type="int" />
+    <Property Name="UserId" Type="varchar" MaxLength="500" />
+    <Property Name="AdditionalData" Type="nvarchar" MaxLength="1000" />
+    <Property Name="PayInitStatus" Type="int" />
+    <Property Name="PayInitMessage" Type="nvarchar" MaxLength="1000" />
+    <Property Name="PayInitToken" Type="varchar" MaxLength="500" />
+    <Property Name="PayDoneToken" Type="varchar" MaxLength="500" />
+    <Property Name="PayDoneOrderId" Type="varchar" MaxLength="500" />
+    <Property Name="PayDoneTerminalNo" Type="varchar" MaxLength="500" />
+    <Property Name="PayDoneRRN" Type="varchar" MaxLength="500" />
+    <Property Name="PayDoneStatus" Type="varchar" MaxLength="500" />
+    <Property Name="PayDoneAmount" Type="varchar" MaxLength="500" />
+    <Property Name="PayDoneHashCardNumber" Type="varchar" MaxLength="500" />
+    <Property Name="PayInitDate" Type="datetime" />
+    <Property Name="PayDoneDate" Type="datetime" />
+    <Property Name="PayConfirm" Type="varchar" MaxLength="255" />
+    <Property Name="PayConfirmDate" Type="datetime" />
+    <Property Name="TspToken" Type="varchar" MaxLength="500" />
+    <Property Name="PayConfirmCardMask" Type="varchar" MaxLength="500" />
+    <Property Name="PayConfirmToken" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="PriceUnit" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="DiscountUnit" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="StatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateCreate" Type="datetime" Nullable="false" />
+    <Property Name="SexId" Type="int" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="500" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="500" />
+    <Property Name="DateBirth" Type="date" />
+    <Property Name="Email" Type="nvarchar" MaxLength="500" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="500" />
+    <Property Name="Address" Type="nvarchar" MaxLength="2000" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Nickname" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDNo" Type="nvarchar" MaxLength="500" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="ZIPCode" Type="varchar" MaxLength="500" />
+    <Property Name="State" Type="varchar" MaxLength="500" />
+    <Property Name="City" Type="varchar" MaxLength="500" />
+    <Property Name="Company" Type="varchar" MaxLength="1000" />
+    <Property Name="University" Type="varchar" MaxLength="1000" />
+    <Property Name="Website" Type="varchar" MaxLength="1000" />
+    <Property Name="Twitter" Type="varchar" MaxLength="1000" />
+    <Property Name="LinkedIn" Type="varchar" MaxLength="1000" />
+    <Property Name="Headline" Type="varchar" MaxLength="2000" />
+    <Property Name="DegreeId" Type="int" />
+    <Property Name="PositionId" Type="int" />
+    <Property Name="DateJoin" Type="datetime" />
+    <Property Name="FieldOfStudyId" Type="int" />
+    <Property Name="TempId" Type="int" />
+    <Property Name="Education2" Type="varchar" MaxLength="500" />
+    <Property Name="Location2" Type="varchar" MaxLength="500" />
+    <Property Name="Position2" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="RefreshToken">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ClientId" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="IssuedUtc" Type="datetime" />
+    <Property Name="ExpiresUtc" Type="datetime" />
+    <Property Name="ProtectedTicket" Type="varchar" MaxLength="2000" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'greenim1_greeni.dbo.Review' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="PersonId" />
+      <PropertyRef Name="TotalRate" />
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+    <Property Name="Body" Type="nvarchar(max)" />
+    <Property Name="Title" Type="varchar" MaxLength="500" />
+    <Property Name="TotalRate" Type="decimal" Precision="5" Scale="3" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="DateConfirm" Type="datetime" />
+    <Property Name="ToPersonId" Type="int" />
+    <Property Name="ToPostId" Type="int" />
+    <Property Name="ToNetworkGroupId" Type="int" />
+    <Property Name="ToReviewId" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'greenim1_greeni.dbo.State' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'greenim1_greeni.dbo.ViewCompany' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewCompany">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="IsVerified" />
+      <PropertyRef Name="DateJoin" />
+      <PropertyRef Name="CountrySortName" />
+      <PropertyRef Name="Country" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="500" />
+    <Property Name="Email" Type="nvarchar" MaxLength="500" />
+    <Property Name="Website" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Url" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DateVerified" Type="datetime" />
+    <Property Name="DateVerifiedStr" Type="nvarchar" MaxLength="4000" />
+    <Property Name="IsVerified" Type="int" Nullable="false" />
+    <Property Name="Twitter" Type="nvarchar" MaxLength="500" />
+    <Property Name="LinkedIn" Type="nvarchar" MaxLength="500" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ImageUrl2" Type="nvarchar" MaxLength="1021" />
+    <Property Name="DateJoin" Type="datetime" Nullable="false" />
+    <Property Name="DateJoinStr" Type="nvarchar" MaxLength="4000" />
+    <Property Name="PDateJoin" Type="nvarchar" MaxLength="4000" />
+    <Property Name="ZIPCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="City" Type="nvarchar" MaxLength="255" />
+    <Property Name="State" Type="nvarchar" MaxLength="255" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="CountrySortName" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Country" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="1514" />
+    <Property Name="Network" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="2000" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="255" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="255" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="511" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone3" Type="nvarchar" MaxLength="255" />
+    <Property Name="NID" Type="nvarchar" MaxLength="255" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="256" />
+    <Property Name="IsUser" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'greenim1_greeni.dbo.ViewCountry' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewCountry">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="SortName" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SortName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'greenim1_greeni.dbo.ViewOption' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewOption">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="OrderIndex" />
+      <PropertyRef Name="IsSystem" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="OrderIndex" Type="int" Nullable="false" />
+    <Property Name="IsSystem" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'greenim1_greeni.dbo.ViewOrder' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Transport" />
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DateG" Type="datetime" />
+    <Property Name="Date" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="DateStr" Type="varchar" MaxLength="16" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="500" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Tax" Type="decimal" Precision="18" Scale="8" />
+    <Property Name="Discount" Type="decimal" Precision="18" Scale="8" />
+    <Property Name="Transport" Type="decimal" Precision="18" Scale="8" Nullable="false" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="PersonId" Type="int" />
+    <Property Name="Status" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="TotalAmount" Type="float" />
+    <Property Name="TotalDiscount" Type="float" />
+    <Property Name="TotalAmountInit" Type="float" />
+    <Property Name="UserId" Type="varchar" MaxLength="500" />
+    <Property Name="AdditionalData" Type="nvarchar" MaxLength="1000" />
+    <Property Name="PayInitStatus" Type="int" />
+    <Property Name="PayInitMessage" Type="nvarchar" MaxLength="1000" />
+    <Property Name="PayInitToken" Type="varchar" MaxLength="500" />
+    <Property Name="PayDoneToken" Type="varchar" MaxLength="500" />
+    <Property Name="PayDoneOrderId" Type="varchar" MaxLength="500" />
+    <Property Name="PayDoneTerminalNo" Type="varchar" MaxLength="500" />
+    <Property Name="PayDoneRRN" Type="varchar" MaxLength="500" />
+    <Property Name="PayDoneStatus" Type="varchar" MaxLength="500" />
+    <Property Name="PayDoneAmount" Type="varchar" MaxLength="500" />
+    <Property Name="PayDoneHashCardNumber" Type="varchar" MaxLength="500" />
+    <Property Name="PayInitDate" Type="datetime" />
+    <Property Name="PayDoneDate" Type="datetime" />
+    <Property Name="PayConfirmDate" Type="datetime" />
+    <Property Name="PayConfirm" Type="varchar" MaxLength="255" />
+    <Property Name="TspToken" Type="varchar" MaxLength="500" />
+    <Property Name="PayConfirmCardMask" Type="varchar" MaxLength="500" />
+    <Property Name="PayConfirmToken" Type="varchar" MaxLength="500" />
+    <Property Name="Company" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CompanyManager" Type="nvarchar" MaxLength="511" />
+    <Property Name="CompanyMobile" Type="nvarchar" MaxLength="255" />
+    <Property Name="CompanyPhone" Type="nvarchar" MaxLength="500" />
+    <Property Name="CompanyAddress" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CompanyCity" Type="nvarchar" MaxLength="255" />
+    <Property Name="CompanyState" Type="nvarchar" MaxLength="255" />
+    <Property Name="CompanyLocation" Type="nvarchar" MaxLength="1514" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="CompanyZIPCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsUser" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'greenim1_greeni.dbo.ViewOrderItem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewOrderItem">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="OrderId" />
+      <PropertyRef Name="ProductId" />
+      <PropertyRef Name="Quantity" />
+      <PropertyRef Name="Product" />
+      <PropertyRef Name="OrderStatus" />
+      <PropertyRef Name="Transport" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="PriceUnit" Type="float" />
+    <Property Name="DiscountUnit" Type="float" />
+    <Property Name="FinalPriceUnit" Type="float" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="OrderStatusId" Type="int" />
+    <Property Name="Product" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Date" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="DateStr" Type="varchar" MaxLength="16" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="500" />
+    <Property Name="Person" Type="nvarchar" MaxLength="500" />
+    <Property Name="OrderStatus" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="Tax" Type="decimal" Precision="18" Scale="8" />
+    <Property Name="OrderDiscount" Type="decimal" Precision="18" Scale="8" />
+    <Property Name="Discount" Type="float" />
+    <Property Name="Transport" Type="decimal" Precision="18" Scale="8" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="500" />
+    <Property Name="IsUser" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'greenim1_greeni.dbo.ViewPerson' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewPerson">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="DateCreate" />
+      <PropertyRef Name="SexId" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="IsDeleted" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DateCreate" Type="datetime" Nullable="false" />
+    <Property Name="SexId" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="DateBirth" Type="date" />
+    <Property Name="Email" Type="nvarchar" MaxLength="500" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="500" />
+    <Property Name="Address" Type="nvarchar" MaxLength="2000" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Nickname" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDNo" Type="nvarchar" MaxLength="500" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ImageUrl2" Type="nvarchar" MaxLength="1021" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="ZIPCode" Type="varchar" MaxLength="500" />
+    <Property Name="State" Type="varchar" MaxLength="500" />
+    <Property Name="City" Type="varchar" MaxLength="500" />
+    <Property Name="Company" Type="varchar" MaxLength="1000" />
+    <Property Name="University" Type="varchar" MaxLength="1000" />
+    <Property Name="Website" Type="varchar" MaxLength="1000" />
+    <Property Name="Twitter" Type="varchar" MaxLength="1000" />
+    <Property Name="LinkedIn" Type="varchar" MaxLength="1000" />
+    <Property Name="Headline" Type="varchar" MaxLength="2000" />
+    <Property Name="DegreeId" Type="int" />
+    <Property Name="PositionId" Type="int" />
+    <Property Name="DateJoin" Type="datetime" />
+    <Property Name="DateJoinStr" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Name" Type="nvarchar" MaxLength="1001" Nullable="false" />
+    <Property Name="FieldOfStudyId" Type="int" />
+    <Property Name="FieldOfStudy" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Degree" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CountrySortName" Type="varchar" MaxLength="50" />
+    <Property Name="Country" Type="varchar" MaxLength="250" />
+    <Property Name="Location" Type="varchar" MaxLength="500" />
+    <Property Name="Education" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_order_person">
+    <End Role="Person" Type="Self.Person" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_orderi_order">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_orderi_product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EPAGRIFFINModelStoreContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderItem" EntityType="Self.OrderItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefreshToken" EntityType="Self.RefreshToken" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoleClaims" EntityType="Self.AspNetRoleClaims" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AspNetRoleClaims].[Id] AS [Id], 
+    [AspNetRoleClaims].[ClaimType] AS [ClaimType], 
+    [AspNetRoleClaims].[ClaimValue] AS [ClaimValue], 
+    [AspNetRoleClaims].[RoleId] AS [RoleId]
+    FROM [dbo].[AspNetRoleClaims] AS [AspNetRoleClaims]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AspNetUserClaims].[Id] AS [Id], 
+    [AspNetUserClaims].[UserId] AS [UserId], 
+    [AspNetUserClaims].[ClaimType] AS [ClaimType], 
+    [AspNetUserClaims].[ClaimValue] AS [ClaimValue]
+    FROM [dbo].[AspNetUserClaims] AS [AspNetUserClaims]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AspNetUserLogins].[LoginProvider] AS [LoginProvider], 
+    [AspNetUserLogins].[ProviderKey] AS [ProviderKey], 
+    [AspNetUserLogins].[UserId] AS [UserId]
+    FROM [dbo].[AspNetUserLogins] AS [AspNetUserLogins]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AspNetUserRoles].[UserId] AS [UserId], 
+    [AspNetUserRoles].[RoleId] AS [RoleId]
+    FROM [dbo].[AspNetUserRoles] AS [AspNetUserRoles]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AspNetUserTokens" EntityType="Self.AspNetUserTokens" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AspNetUserTokens].[UserId] AS [UserId], 
+    [AspNetUserTokens].[LoginProvider] AS [LoginProvider], 
+    [AspNetUserTokens].[Name] AS [Name], 
+    [AspNetUserTokens].[Value] AS [Value]
+    FROM [dbo].[AspNetUserTokens] AS [AspNetUserTokens]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="City" EntityType="Self.City" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [City].[Id] AS [Id], 
+    [City].[Name] AS [Name], 
+    [City].[StateId] AS [StateId], 
+    [City].[AccuWeatherCode] AS [AccuWeatherCode], 
+    [City].[Latitude] AS [Latitude], 
+    [City].[Longitude] AS [Longitude]
+    FROM [dbo].[City] AS [City]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Country" EntityType="Self.Country" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Country].[Id] AS [Id], 
+    [Country].[SortName] AS [SortName], 
+    [Country].[Name] AS [Name], 
+    [Country].[PhoneCode] AS [PhoneCode]
+    FROM [dbo].[Country] AS [Country]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Option" EntityType="Self.Option" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Option].[Id] AS [Id], 
+    [Option].[Title] AS [Title], 
+    [Option].[ParentId] AS [ParentId], 
+    [Option].[IsSystem] AS [IsSystem], 
+    [Option].[OrderIndex] AS [OrderIndex], 
+    [Option].[CreatorId] AS [CreatorId], 
+    [Option].[Prop1] AS [Prop1]
+    FROM [dbo].[Option] AS [Option]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Review" EntityType="Self.Review" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Review].[Id] AS [Id], 
+    [Review].[PersonId] AS [PersonId], 
+    [Review].[Body] AS [Body], 
+    [Review].[Title] AS [Title], 
+    [Review].[TotalRate] AS [TotalRate], 
+    [Review].[Date] AS [Date], 
+    [Review].[DateConfirm] AS [DateConfirm], 
+    [Review].[ToPersonId] AS [ToPersonId], 
+    [Review].[ToPostId] AS [ToPostId], 
+    [Review].[ToNetworkGroupId] AS [ToNetworkGroupId], 
+    [Review].[ToReviewId] AS [ToReviewId]
+    FROM [dbo].[Review] AS [Review]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="State" EntityType="Self.State" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [State].[Id] AS [Id], 
+    [State].[Name] AS [Name], 
+    [State].[CountryId] AS [CountryId]
+    FROM [dbo].[State] AS [State]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewCompany" EntityType="Self.ViewCompany" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewCompany].[Id] AS [Id], 
+    [ViewCompany].[Name] AS [Name], 
+    [ViewCompany].[Address] AS [Address], 
+    [ViewCompany].[Phone] AS [Phone], 
+    [ViewCompany].[Email] AS [Email], 
+    [ViewCompany].[Website] AS [Website], 
+    [ViewCompany].[Url] AS [Url], 
+    [ViewCompany].[DateVerified] AS [DateVerified], 
+    [ViewCompany].[DateVerifiedStr] AS [DateVerifiedStr], 
+    [ViewCompany].[IsVerified] AS [IsVerified], 
+    [ViewCompany].[Twitter] AS [Twitter], 
+    [ViewCompany].[LinkedIn] AS [LinkedIn], 
+    [ViewCompany].[ImageUrl] AS [ImageUrl], 
+    [ViewCompany].[ImageUrl2] AS [ImageUrl2], 
+    [ViewCompany].[DateJoin] AS [DateJoin], 
+    [ViewCompany].[DateJoinStr] AS [DateJoinStr], 
+    [ViewCompany].[PDateJoin] AS [PDateJoin], 
+    [ViewCompany].[ZIPCode] AS [ZIPCode], 
+    [ViewCompany].[City] AS [City], 
+    [ViewCompany].[State] AS [State], 
+    [ViewCompany].[CountryId] AS [CountryId], 
+    [ViewCompany].[CountrySortName] AS [CountrySortName], 
+    [ViewCompany].[Country] AS [Country], 
+    [ViewCompany].[Location] AS [Location], 
+    [ViewCompany].[Network] AS [Network], 
+    [ViewCompany].[Remark] AS [Remark], 
+    [ViewCompany].[FirstName] AS [FirstName], 
+    [ViewCompany].[LastName] AS [LastName], 
+    [ViewCompany].[FullName] AS [FullName], 
+    [ViewCompany].[Mobile] AS [Mobile], 
+    [ViewCompany].[Phone2] AS [Phone2], 
+    [ViewCompany].[Phone3] AS [Phone3], 
+    [ViewCompany].[NID] AS [NID], 
+    [ViewCompany].[UserId] AS [UserId], 
+    [ViewCompany].[IsUser] AS [IsUser]
+    FROM [dbo].[ViewCompany] AS [ViewCompany]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewCountry" EntityType="Self.ViewCountry" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewCountry].[Id] AS [Id], 
+    [ViewCountry].[SortName] AS [SortName], 
+    [ViewCountry].[Name] AS [Name]
+    FROM [dbo].[ViewCountry] AS [ViewCountry]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewOption" EntityType="Self.ViewOption" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewOption].[Id] AS [Id], 
+    [ViewOption].[Title] AS [Title], 
+    [ViewOption].[ParentId] AS [ParentId], 
+    [ViewOption].[OrderIndex] AS [OrderIndex], 
+    [ViewOption].[IsSystem] AS [IsSystem]
+    FROM [dbo].[ViewOption] AS [ViewOption]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewOrder" EntityType="Self.ViewOrder" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewOrder].[Id] AS [Id], 
+    [ViewOrder].[DateG] AS [DateG], 
+    [ViewOrder].[Date] AS [Date], 
+    [ViewOrder].[DateStr] AS [DateStr], 
+    [ViewOrder].[Mobile] AS [Mobile], 
+    [ViewOrder].[Name] AS [Name], 
+    [ViewOrder].[Remark] AS [Remark], 
+    [ViewOrder].[Tax] AS [Tax], 
+    [ViewOrder].[Discount] AS [Discount], 
+    [ViewOrder].[Transport] AS [Transport], 
+    [ViewOrder].[StatusId] AS [StatusId], 
+    [ViewOrder].[PersonId] AS [PersonId], 
+    [ViewOrder].[Status] AS [Status], 
+    [ViewOrder].[TotalAmount] AS [TotalAmount], 
+    [ViewOrder].[TotalDiscount] AS [TotalDiscount], 
+    [ViewOrder].[TotalAmountInit] AS [TotalAmountInit], 
+    [ViewOrder].[UserId] AS [UserId], 
+    [ViewOrder].[AdditionalData] AS [AdditionalData], 
+    [ViewOrder].[PayInitStatus] AS [PayInitStatus], 
+    [ViewOrder].[PayInitMessage] AS [PayInitMessage], 
+    [ViewOrder].[PayInitToken] AS [PayInitToken], 
+    [ViewOrder].[PayDoneToken] AS [PayDoneToken], 
+    [ViewOrder].[PayDoneOrderId] AS [PayDoneOrderId], 
+    [ViewOrder].[PayDoneTerminalNo] AS [PayDoneTerminalNo], 
+    [ViewOrder].[PayDoneRRN] AS [PayDoneRRN], 
+    [ViewOrder].[PayDoneStatus] AS [PayDoneStatus], 
+    [ViewOrder].[PayDoneAmount] AS [PayDoneAmount], 
+    [ViewOrder].[PayDoneHashCardNumber] AS [PayDoneHashCardNumber], 
+    [ViewOrder].[PayInitDate] AS [PayInitDate], 
+    [ViewOrder].[PayDoneDate] AS [PayDoneDate], 
+    [ViewOrder].[PayConfirmDate] AS [PayConfirmDate], 
+    [ViewOrder].[PayConfirm] AS [PayConfirm], 
+    [ViewOrder].[TspToken] AS [TspToken], 
+    [ViewOrder].[PayConfirmCardMask] AS [PayConfirmCardMask], 
+    [ViewOrder].[PayConfirmToken] AS [PayConfirmToken], 
+    [ViewOrder].[Company] AS [Company], 
+    [ViewOrder].[CompanyManager] AS [CompanyManager], 
+    [ViewOrder].[CompanyMobile] AS [CompanyMobile], 
+    [ViewOrder].[CompanyPhone] AS [CompanyPhone], 
+    [ViewOrder].[CompanyAddress] AS [CompanyAddress], 
+    [ViewOrder].[CompanyCity] AS [CompanyCity], 
+    [ViewOrder].[CompanyState] AS [CompanyState], 
+    [ViewOrder].[CompanyLocation] AS [CompanyLocation], 
+    [ViewOrder].[CompanyId] AS [CompanyId], 
+    [ViewOrder].[CompanyZIPCode] AS [CompanyZIPCode], 
+    [ViewOrder].[IsUser] AS [IsUser]
+    FROM [dbo].[ViewOrder] AS [ViewOrder]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewOrderItem" EntityType="Self.ViewOrderItem" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewOrderItem].[Id] AS [Id], 
+    [ViewOrderItem].[OrderId] AS [OrderId], 
+    [ViewOrderItem].[ProductId] AS [ProductId], 
+    [ViewOrderItem].[Quantity] AS [Quantity], 
+    [ViewOrderItem].[PriceUnit] AS [PriceUnit], 
+    [ViewOrderItem].[DiscountUnit] AS [DiscountUnit], 
+    [ViewOrderItem].[FinalPriceUnit] AS [FinalPriceUnit], 
+    [ViewOrderItem].[Price] AS [Price], 
+    [ViewOrderItem].[Remark] AS [Remark], 
+    [ViewOrderItem].[StatusId] AS [StatusId], 
+    [ViewOrderItem].[OrderStatusId] AS [OrderStatusId], 
+    [ViewOrderItem].[Product] AS [Product], 
+    [ViewOrderItem].[Date] AS [Date], 
+    [ViewOrderItem].[DateStr] AS [DateStr], 
+    [ViewOrderItem].[Mobile] AS [Mobile], 
+    [ViewOrderItem].[Person] AS [Person], 
+    [ViewOrderItem].[OrderStatus] AS [OrderStatus], 
+    [ViewOrderItem].[Tax] AS [Tax], 
+    [ViewOrderItem].[OrderDiscount] AS [OrderDiscount], 
+    [ViewOrderItem].[Discount] AS [Discount], 
+    [ViewOrderItem].[Transport] AS [Transport], 
+    [ViewOrderItem].[UserId] AS [UserId], 
+    [ViewOrderItem].[IsUser] AS [IsUser]
+    FROM [dbo].[ViewOrderItem] AS [ViewOrderItem]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewPerson" EntityType="Self.ViewPerson" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewPerson].[Id] AS [Id], 
+    [ViewPerson].[DateCreate] AS [DateCreate], 
+    [ViewPerson].[SexId] AS [SexId], 
+    [ViewPerson].[FirstName] AS [FirstName], 
+    [ViewPerson].[LastName] AS [LastName], 
+    [ViewPerson].[DateBirth] AS [DateBirth], 
+    [ViewPerson].[Email] AS [Email], 
+    [ViewPerson].[Mobile] AS [Mobile], 
+    [ViewPerson].[Address] AS [Address], 
+    [ViewPerson].[IsActive] AS [IsActive], 
+    [ViewPerson].[IsDeleted] AS [IsDeleted], 
+    [ViewPerson].[Remark] AS [Remark], 
+    [ViewPerson].[Nickname] AS [Nickname], 
+    [ViewPerson].[IDNo] AS [IDNo], 
+    [ViewPerson].[UserId] AS [UserId], 
+    [ViewPerson].[ImageUrl] AS [ImageUrl], 
+    [ViewPerson].[ImageUrl2] AS [ImageUrl2], 
+    [ViewPerson].[CountryId] AS [CountryId], 
+    [ViewPerson].[ZIPCode] AS [ZIPCode], 
+    [ViewPerson].[State] AS [State], 
+    [ViewPerson].[City] AS [City], 
+    [ViewPerson].[Company] AS [Company], 
+    [ViewPerson].[University] AS [University], 
+    [ViewPerson].[Website] AS [Website], 
+    [ViewPerson].[Twitter] AS [Twitter], 
+    [ViewPerson].[LinkedIn] AS [LinkedIn], 
+    [ViewPerson].[Headline] AS [Headline], 
+    [ViewPerson].[DegreeId] AS [DegreeId], 
+    [ViewPerson].[PositionId] AS [PositionId], 
+    [ViewPerson].[DateJoin] AS [DateJoin], 
+    [ViewPerson].[DateJoinStr] AS [DateJoinStr], 
+    [ViewPerson].[Name] AS [Name], 
+    [ViewPerson].[FieldOfStudyId] AS [FieldOfStudyId], 
+    [ViewPerson].[FieldOfStudy] AS [FieldOfStudy], 
+    [ViewPerson].[Degree] AS [Degree], 
+    [ViewPerson].[CountrySortName] AS [CountrySortName], 
+    [ViewPerson].[Country] AS [Country], 
+    [ViewPerson].[Location] AS [Location], 
+    [ViewPerson].[Education] AS [Education]
+    FROM [dbo].[ViewPerson] AS [ViewPerson]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="fk_order_person" Association="Self.fk_order_person">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="fk_orderi_order" Association="Self.fk_orderi_order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="OrderItem" EntitySet="OrderItem" />
+    </AssociationSet>
+    <AssociationSet Name="fk_orderi_product" Association="Self.fk_orderi_product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="OrderItem" EntitySet="OrderItem" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,134 @@
+﻿<style>
+    #dg_stores .dx-rtl .dx-texteditor-input {
+        padding: 0 25px 0 10px !important;
+    }
+
+    @media (min-width:756px) {
+
+        .sidebar {
+            display: none
+        }
+
+        #baricon {
+            display: none
+        }
+    }
+
+    @media (max-width:756px) {
+        .bigNav {
+            display: none
+        }
+
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 10;
+            top: 0;
+            right: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+            .sidebar a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidebar a:hover {
+                    color: #f1f1f1;
+                }
+
+            .sidebar .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+ }
+
+
+
+
+</style>
+
+<div class="box home" style="direction:rtl;text-align:right">
+    <nav class="bigNav" style="overflow:hidden;text-align:center !important">
+        <!-- Avatar image in top left corner -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+        <a class="w3-bar-item w3-button " style="position:relative;" data-ng-click="navigate2('/admin/stores','stores',1)">
+            <span style="font-size:13px;color:white;font-weight:bold;margin-top:5px">فروشگاه</span>
+        </a>
+        <a class="w3-bar-item w3-button w3-padding-large backcolor-transition basket centerNav" style="position:relative;" data-ng-click="navigate2('/admin/orders','orders',1)">
+            <span style="font-size:13px;color:white;font-weight:bold;margin-top:5px">سفارش ها </span>
+        </a>
+
+    </nav>
+
+
+    <!--mobile navigation bar-->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a data-ng-click="navigate2('/admin/stores','stores',1)">فروشگاه</a>
+        <a data-ng-click="navigate2('/admin/orders','orders',1)">سفارش ها</a>
+    </div><i id="baricon" onclick="openNav()" class="fas fa-bars openbtn"></i>
+
+
+
+    <!-- Page Content -->
+    <div class="w3-padding-large" id="main">
+        <!-- Header/Home -->
+        <header class="w3-container w3-padding-48 w3-center w3-black" id="home" style="padding-top:20px !important"></header>
+
+        <div class="col-lg-7" style="padding:0 0px 0 0px; background:white; color:black;">
+            <div style="background:#ccc;padding:10px;font-weight:bold;border:1px solid gray">فروشگاه</div>
+            <div dx-data-grid="dg_stores" id="dg_stores" class="content" style="overflow-y:hidden"></div>
+            <!--<div class="w3-content w3-justify w3-text-grey" style="text-align:center !important">
+                <div style="width:100%;max-width:350px;margin:0px auto 0 auto;display:inline-block;padding:0px 0 0 0;">
+                    <div dx-text-box="txt_Mobile" class="name" style="background:white; margin-top:7px" dx-validator="{validationGroup:'signin',  validationRules: [{ type: 'required',message:'این فیلد ضروری است'}]}"></div>
+                    <div dx-text-box="txt_Password" class="name" style="background:white; margin-top:7px" dx-validator="passwordValidationRules"></div>
+
+                    <div dx-button="btn_save" style="margin-top:10px"></div>
+                </div>
+            </div>-->
+
+        </div>
+        <div class="col-lg-5" style="padding:0 5px 0 0px; background:white; color:black;">
+            <div style="background:#ccc;padding:10px;font-weight:bold;border:1px solid gray">سفارش ها</div>
+            <div dx-data-grid="dg_orders" id="dg_orders" class="content" style="overflow-y:hidden"></div>
+
+
+        </div>
+        <div style="clear:both"></div>
+
+
+
+
+
+    </div>
+
+    <div dx-load-panel="loadPanel"></div>
+
+</div>
+
+
+<script>
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "0px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+</script>

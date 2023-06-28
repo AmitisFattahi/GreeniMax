@@ -1,0 +1,565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EPAGRIFFINModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EPAGRIFFINEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cities" EntityType="EPAGRIFFINModel.City" />
+    <EntitySet Name="Countries" EntityType="EPAGRIFFINModel.Country" />
+    <EntitySet Name="Options" EntityType="EPAGRIFFINModel.Option" />
+    <EntitySet Name="Reviews" EntityType="EPAGRIFFINModel.Review" />
+    <EntitySet Name="States" EntityType="EPAGRIFFINModel.State" />
+    <EntitySet Name="ViewCountries" EntityType="EPAGRIFFINModel.ViewCountry" />
+    <EntitySet Name="ViewOptions" EntityType="EPAGRIFFINModel.ViewOption" />
+    <EntitySet Name="RefreshTokens" EntityType="EPAGRIFFINModel.RefreshToken" />
+    <EntitySet Name="ViewPersons" EntityType="EPAGRIFFINModel.ViewPerson" />
+    <EntitySet Name="Products" EntityType="EPAGRIFFINModel.Product" />
+    <EntitySet Name="OrderItems" EntityType="EPAGRIFFINModel.OrderItem" />
+    <AssociationSet Name="fk_orderi_product" Association="EPAGRIFFINModel.fk_orderi_product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="OrderItem" EntitySet="OrderItems" />
+    </AssociationSet>
+    <EntitySet Name="People" EntityType="EPAGRIFFINModel.Person" />
+    <EntitySet Name="AspNetRoles" EntityType="EPAGRIFFINModel.AspNetRole" />
+    <EntitySet Name="AspNetUsers" EntityType="EPAGRIFFINModel.AspNetUser" />
+    <EntitySet Name="AspNetRoleClaims" EntityType="EPAGRIFFINModel.AspNetRoleClaim" />
+    <EntitySet Name="AspNetUserClaims" EntityType="EPAGRIFFINModel.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="EPAGRIFFINModel.AspNetUserLogin" />
+    <EntitySet Name="AspNetUserTokens" EntityType="EPAGRIFFINModel.AspNetUserToken" />
+    <AssociationSet Name="AspNetUserRoles" Association="EPAGRIFFINModel.AspNetUserRoles">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="Orders" EntityType="EPAGRIFFINModel.Order" />
+    <AssociationSet Name="fk_order_person" Association="EPAGRIFFINModel.fk_order_person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="fk_orderi_order" Association="EPAGRIFFINModel.fk_orderi_order">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderItem" EntitySet="OrderItems" />
+    </AssociationSet>
+    <EntitySet Name="Companies" EntityType="EPAGRIFFINModel.Company" />
+    <EntitySet Name="ViewCompanies" EntityType="EPAGRIFFINModel.ViewCompany" />
+    <EntitySet Name="ViewOrders" EntityType="EPAGRIFFINModel.ViewOrder" />
+    <EntitySet Name="ViewOrderItems" EntityType="EPAGRIFFINModel.ViewOrderItem" />
+  </EntityContainer>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="AccuWeatherCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Longitude" Type="Decimal" Precision="18" Scale="4" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="SortName" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SortName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneCode" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Option">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="IsSystem" />
+      <PropertyRef Name="OrderIndex" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="IsSystem" Type="Boolean" Nullable="false" />
+    <Property Name="OrderIndex" Type="Int32" Nullable="false" />
+    <Property Name="CreatorId" Type="Int32" />
+    <Property Name="Prop1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="PersonId" />
+      <PropertyRef Name="TotalRate" />
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+    <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TotalRate" Type="Decimal" Nullable="false" Precision="5" Scale="3" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateConfirm" Type="DateTime" Precision="3" />
+    <Property Name="ToPersonId" Type="Int32" />
+    <Property Name="ToPostId" Type="Int32" />
+    <Property Name="ToNetworkGroupId" Type="Int32" />
+    <Property Name="ToReviewId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ViewCountry">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="SortName" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SortName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ViewOption">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="OrderIndex" />
+      <PropertyRef Name="IsSystem" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="OrderIndex" Type="Int32" Nullable="false" />
+    <Property Name="IsSystem" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RefreshToken">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ClientId" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IssuedUtc" Type="DateTime" Precision="3" />
+    <Property Name="ExpiresUtc" Type="DateTime" Precision="3" />
+    <Property Name="ProtectedTicket" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ViewPerson">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="DateCreate" />
+      <PropertyRef Name="SexId" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="IsDeleted" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="DateCreate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SexId" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DateBirth" Type="DateTime" Precision="0" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Remark" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDNo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl2" Type="String" MaxLength="1021" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="ZIPCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Company" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="University" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Website" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Twitter" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="LinkedIn" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Headline" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="DegreeId" Type="Int32" />
+    <Property Name="PositionId" Type="Int32" />
+    <Property Name="DateJoin" Type="DateTime" Precision="3" />
+    <Property Name="DateJoinStr" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="1001" FixedLength="false" Unicode="true" />
+    <Property Name="FieldOfStudyId" Type="Int32" />
+    <Property Name="FieldOfStudy" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Degree" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="CountrySortName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Education" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="OrderItems" Relationship="EPAGRIFFINModel.fk_orderi_product" FromRole="Product" ToRole="OrderItem" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="PriceUnit" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="DiscountUnit" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="StatusId" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="EPAGRIFFINModel.fk_orderi_product" FromRole="OrderItem" ToRole="Product" />
+    <NavigationProperty Name="Order" Relationship="EPAGRIFFINModel.fk_orderi_order" FromRole="OrderItem" ToRole="Order" />
+  </EntityType>
+  <Association Name="fk_orderi_product">
+    <End Type="EPAGRIFFINModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="EPAGRIFFINModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateCreate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SexId" Type="Int32" />
+    <Property Name="FirstName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DateBirth" Type="DateTime" Precision="0" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Remark" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDNo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="ZIPCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Company" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="University" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Website" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Twitter" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="LinkedIn" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Headline" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="DegreeId" Type="Int32" />
+    <Property Name="PositionId" Type="Int32" />
+    <Property Name="DateJoin" Type="DateTime" Precision="3" />
+    <Property Name="FieldOfStudyId" Type="Int32" />
+    <Property Name="TempId" Type="Int32" />
+    <Property Name="Education2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Location2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Position2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Orders" Relationship="EPAGRIFFINModel.fk_order_person" FromRole="Person" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="EPAGRIFFINModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetRoles" Relationship="EPAGRIFFINModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+  </EntityType>
+  <EntityType Name="AspNetRoleClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClaimValue" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AspNetUserToken">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LoginProvider" />
+    </Key>
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="LoginProvider" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="AspNetUserRoles">
+    <End Type="EPAGRIFFINModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="EPAGRIFFINModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateG" Type="DateTime" Precision="3" />
+    <Property Name="Date" Type="Decimal" Precision="20" Scale="0" />
+    <Property Name="Mobile" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Tax" Type="Decimal" Precision="18" Scale="8" />
+    <Property Name="Discount" Type="Decimal" Precision="18" Scale="8" />
+    <Property Name="Transport" Type="Decimal" Precision="18" Scale="8" />
+    <Property Name="StatusId" Type="Int32" />
+    <Property Name="PersonId" Type="Int32" />
+    <Property Name="UserId" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="AdditionalData" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="PayInitStatus" Type="Int32" />
+    <Property Name="PayInitMessage" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="PayInitToken" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayDoneToken" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayDoneOrderId" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayDoneTerminalNo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayDoneRRN" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayDoneStatus" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayDoneAmount" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayDoneHashCardNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayInitDate" Type="DateTime" Precision="3" />
+    <Property Name="PayDoneDate" Type="DateTime" Precision="3" />
+    <Property Name="PayConfirm" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PayConfirmDate" Type="DateTime" Precision="3" />
+    <Property Name="TspToken" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayConfirmCardMask" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayConfirmToken" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Person" Relationship="EPAGRIFFINModel.fk_order_person" FromRole="Order" ToRole="Person" />
+    <NavigationProperty Name="OrderItems" Relationship="EPAGRIFFINModel.fk_orderi_order" FromRole="Order" ToRole="OrderItem" />
+  </EntityType>
+  <Association Name="fk_order_person">
+    <End Type="EPAGRIFFINModel.Person" Role="Person" Multiplicity="0..1" />
+    <End Type="EPAGRIFFINModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_orderi_order">
+    <End Type="EPAGRIFFINModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="EPAGRIFFINModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DateVerified" Type="DateTime" Precision="3" />
+    <Property Name="Twitter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LinkedIn" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="PersonId" Type="Int32" />
+    <Property Name="DateJoin" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ZIPCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="Network" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Phone2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Phone3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsUser" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ViewCompany">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="IsVerified" />
+      <PropertyRef Name="DateJoin" />
+      <PropertyRef Name="CountrySortName" />
+      <PropertyRef Name="Country" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DateVerified" Type="DateTime" Precision="3" />
+    <Property Name="DateVerifiedStr" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="IsVerified" Type="Int32" Nullable="false" />
+    <Property Name="Twitter" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LinkedIn" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl2" Type="String" MaxLength="1021" FixedLength="false" Unicode="true" />
+    <Property Name="DateJoin" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateJoinStr" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="PDateJoin" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="ZIPCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="CountrySortName" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="1514" FixedLength="false" Unicode="true" />
+    <Property Name="Network" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="511" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Phone2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Phone3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="IsUser" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ViewOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Transport" />
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="DateG" Type="DateTime" Precision="3" />
+    <Property Name="Date" Type="Decimal" Precision="20" Scale="0" />
+    <Property Name="DateStr" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Tax" Type="Decimal" Precision="18" Scale="8" />
+    <Property Name="Discount" Type="Decimal" Precision="18" Scale="8" />
+    <Property Name="Transport" Type="Decimal" Nullable="false" Precision="18" Scale="8" />
+    <Property Name="StatusId" Type="Int32" />
+    <Property Name="PersonId" Type="Int32" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="TotalAmount" Type="Double" />
+    <Property Name="TotalDiscount" Type="Double" />
+    <Property Name="TotalAmountInit" Type="Double" />
+    <Property Name="UserId" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="AdditionalData" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="PayInitStatus" Type="Int32" />
+    <Property Name="PayInitMessage" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="PayInitToken" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayDoneToken" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayDoneOrderId" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayDoneTerminalNo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayDoneRRN" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayDoneStatus" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayDoneAmount" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayDoneHashCardNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayInitDate" Type="DateTime" Precision="3" />
+    <Property Name="PayDoneDate" Type="DateTime" Precision="3" />
+    <Property Name="PayConfirmDate" Type="DateTime" Precision="3" />
+    <Property Name="PayConfirm" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TspToken" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayConfirmCardMask" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PayConfirmToken" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Company" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyManager" Type="String" MaxLength="511" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyMobile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyPhone" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyAddress" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyCity" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyState" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyLocation" Type="String" MaxLength="1514" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="CompanyZIPCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsUser" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ViewOrderItem">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="OrderId" />
+      <PropertyRef Name="ProductId" />
+      <PropertyRef Name="Quantity" />
+      <PropertyRef Name="Product" />
+      <PropertyRef Name="OrderStatus" />
+      <PropertyRef Name="Transport" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="PriceUnit" Type="Double" />
+    <Property Name="DiscountUnit" Type="Double" />
+    <Property Name="FinalPriceUnit" Type="Double" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="StatusId" Type="Int32" />
+    <Property Name="OrderStatusId" Type="Int32" />
+    <Property Name="Product" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="Decimal" Precision="20" Scale="0" />
+    <Property Name="DateStr" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Person" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="OrderStatus" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Tax" Type="Decimal" Precision="18" Scale="8" />
+    <Property Name="OrderDiscount" Type="Decimal" Precision="18" Scale="8" />
+    <Property Name="Discount" Type="Double" />
+    <Property Name="Transport" Type="Decimal" Nullable="false" Precision="18" Scale="8" />
+    <Property Name="UserId" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsUser" Type="Boolean" />
+  </EntityType>
+</Schema>
